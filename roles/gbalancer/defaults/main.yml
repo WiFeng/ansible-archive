@@ -1,0 +1,17 @@
+---
+
+#gbalancer:
+#  - port: 3306
+#    pass: ""
+#    host1: "ip1"
+#    host2: "ip2"
+#    host3: "ip3"
+#    model:
+#  - port: 3307
+#    pass: ""
+#    host1: "ip1"
+#    host2: "ip2"
+#    host3: "ip3"
+#    model: 1
+
+gbalancer:

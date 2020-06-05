@@ -1,0 +1,13 @@
+---
+
+nginx_prefix: /usr/share/nginx
+nginx_sbin_path: /usr/sbin
+nginx_conf_path: /etc/nginx
+
+nginx_log_path: /letv/logs/nginx
+nginx_error_log: /letv/logs/nginx/error.log
+nginx_access_log: /letv/logs/nginx/access.log
+
+nginx_vhosts:
+nginx_rewrite:
+

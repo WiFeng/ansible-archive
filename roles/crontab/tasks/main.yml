@@ -1,0 +1,3 @@
+---
+- name: copy crontab file
+  template: src={{crontab_file}} dest='/etc/cron.d/'

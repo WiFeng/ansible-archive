@@ -1,0 +1,6 @@
+---
+- name: mkdir cronsh path 
+  raw: mkdir -p /letv/cronsh
+
+- name: copy /letv/cronsh/nginx_log2.sh
+  template: src=nginx_log2.sh dest=/letv/cronsh/ mode=0644

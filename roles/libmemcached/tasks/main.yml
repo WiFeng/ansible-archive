@@ -1,0 +1,6 @@
+---
+- name: copy package
+  copy: src={{libmemcached_package}}.tar.gz dest=/root/
+
+- name: run install 
+  script: install.sh {{libmemcached_prefix}} {{libmemcached_package}}

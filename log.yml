@@ -1,0 +1,7 @@
+---
+- name: Cut logs 
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - log

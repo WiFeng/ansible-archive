@@ -1,0 +1,11 @@
+---
+
+- name: copy /etc/dnsmasq.conf
+  template: src=dnsmasq.conf dest=/etc/
+  notify: reload dnsmasq
+
+- name: copy /etc/resolv.conf
+  template: src=resolv.conf dest=/etc/
+  notify: reload dnsmasq
+
+

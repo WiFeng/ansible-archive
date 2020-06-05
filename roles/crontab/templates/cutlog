@@ -1,0 +1,1 @@
+00 00 * * * /bin/bash  /letv/cronsh/nginx_log2.sh

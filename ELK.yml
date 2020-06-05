@@ -1,0 +1,8 @@
+---
+- name: Install ELK
+  hosts: "elk"
+  become: yes
+
+  roles:
+    - JDK
+    - ELK

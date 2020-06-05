@@ -1,0 +1,85 @@
+---
+#- name: Add repository
+#  yum_repository:
+#    name: "elastic-6.1"
+#    description: "elastic repository for 6.x packages"
+#    baseurl: "https://artifacts.elastic.co/packages/6.x/yum"
+#    gpgcheck: 1
+#    gpgkey: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+#    file: elastic
+#    state: absent
+
+- name: Copy package
+  copy: src={{item}} dest=/root/
+  with_items:
+    - "{{kibana_package}}"
+    - "{{logstash_package}}"
+    - "{{elasticsearch_package}}"
+
+- name: Install kibana
+  #yum: name=kibana state=present
+  yum: name=/root/{{kibana_package}} state=present
+  #notify: start kibana
+
+- name: Install logstash
+  #yum: name=logstash state=present
+  yum: name=/root/{{logstash_package}} state=present
+  #notify: start logstash
+
+- name: Install elasticsearch
+  #yum: name=elasticsearch state=present
+  yum: name=/root/{{elasticsearch_package}} state=present
+  #notify: start elasticsearch
+
+- name: Mkdir logs directory
+  file:
+    path: /letv/logs
+    owner: root
+    group: root
+    state: directory
+
+- name: Mkdir kibana directory
+  file:
+    path: "{{item}}"
+    owner: kibana
+    group: kibana
+    state: directory
+  with_items:
+    - "/letv/logs/kibana"
+
+- name: Mkdir logstash directory
+  file:
+    path: "{{item}}"
+    owner: logstash
+    group: logstash
+    state: directory
+  with_items:
+    - "/letv/logs/logstash"
+    - "/data/logstash/"
+
+- name: Mkdir elstaticsearch directory
+  file:
+    path: "{{item}}"
+    owner: elasticsearch
+    group: elasticsearch
+    state: directory
+  with_items:
+    - "/letv/logs/elasticsearch"
+    - "/data/elasticsearch/"
+
+- name: Copy kibana conf
+  copy: src=../templates/kibana dest=/etc/
+  #notify: reload kibana
+
+- name: Copy logstash conf
+  copy: src=../templates/logstash dest=/etc/
+  #notify: reload logstash
+
+- name: Copy elasticsearch conf
+  copy: src=../templates/elasticsearch dest=/etc/
+  #notify: reload elasticsearch
+
+- name: Copy logstash init file
+  copy: src=../templates/init.logstash.conf dest=/etc/init/logstash.conf
+
+

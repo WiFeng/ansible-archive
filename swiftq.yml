@@ -1,0 +1,7 @@
+---
+- name: Install Swiftq
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - swiftq

@@ -1,0 +1,70 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+
+[shop]
+10.135.28.89
+
+[bbs]
+10.183.222.35
+
+[odp]
+10.112.33.39
+[usergrowth]
+10.124.66.250
+
+
+
+############################
+# 
+# Playbook
+#
+# 以下分组暂未配置分组变量
+# 请勿将这些分组名称用于playbook命中使用，
+#
+# 会造成配置文件信息不完整的情况，后果非常严重！
+#
+############################
+
+[bbs_g1]
+10.200.92.221
+10.200.93.28
+10.200.93.29
+10.200.93.30
+
+[bbs_g2]
+10.180.244.166
+10.180.244.176
+10.180.244.186
+
+[bbs_g3]
+10.183.222.35
+10.183.222.41
+10.183.222.42
+10.183.222.44
+
+[bbs_g4]
+10.183.222.47
+10.183.222.52
+10.183.222.55
+10.183.222.56
+
+[bbs_no]
+10.200.94.23
+10.180.219.44
+10.180.219.66
+
+
+############################
+
+
+
+
+

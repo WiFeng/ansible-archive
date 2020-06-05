@@ -1,0 +1,13 @@
+#每分钟更新一次触达活动的状态
+* * * * * cd /letv/www/urminternalui/; /usr/local/php/bin/php shell.php TouchDaemon updateActivityStatus
+55 23 * * * cd /letv/www/urminternalui/; /usr/local/php/bin/php shell.php TouchDaemon delCampAudience
+
+#每天0点重启流量监控
+* * * * * cd /letv/www/urminternalui/; /usr/local/php/bin/php shell.php MessageDaemon callSysMsgApi
+* * * * * cd /letv/www/urminternalui/; /usr/local/php/bin/php shell.php MessageDaemon handleUidFile
+* * * * * cd /letv/www/urminternalui/; /usr/local/php/bin/php shell.php MessageDaemon uidPackageToRedisQueue
+* * * * * cd /letv/www/urminternalui/; /usr/local/php/bin/php shell.php MessageDaemon runSendMsg
+0 4,13 * * * cd /letv/www/urminternalui/; /usr/local/php/bin/php shell.php MessageDaemon statistic
+
+55 23 * * * cd /letv/www/urminternalui/; /usr/local/php/bin/php shell.php TouchDaemon recordActivityStatus
+55 23 * * * cd /letv/www/urminternalui/; /usr/local/php/bin/php shell.php TouchDaemon recordAppMsgStatus

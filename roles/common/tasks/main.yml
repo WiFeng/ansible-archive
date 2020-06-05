@@ -1,0 +1,38 @@
+---
+
+#- name: Install Yum Repo
+#  copy: src={{item}}.repo dest=/etc/yum.repos.d/
+#  with_items:
+#    - qpidagent
+
+- name: Install Common Libs
+  yum: name={{item}} state=present
+  with_items:
+   - libtool-ltdl-devel
+   - curl-devel
+   - libxml2-devel
+   - libmhash-devel
+   - mysql-devel
+   - libjpeg-devel
+   - libpng-devel
+   - openssl-devel
+   - gd-devel
+   - libmcrypt-devel
+   - readline-devel
+   - gmp-devel
+   - openldap-devel
+
+   - libmemcached-devel
+
+   # swiftq
+   - qpid-cpp-client
+   - cyrus-sasl-md5
+
+   - libmcrypt
+
+   # 指定单独安装，旧版本有安全BUG
+   #- ImageMagick
+
+#   - ffmpeg-libs
+#   - libcrypt-devel
+

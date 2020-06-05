@@ -1,0 +1,14 @@
+---
+
+nginx_vhosts:
+  - limit_req
+  - opcache.io
+  - benefit.my.le.com
+
+filebeat_tags:
+  - service-lefan
+  - web-tier
+filebeat_input_log_topic: benefit_log
+filebeat_input_trace_topic: lefan_tracing_log
+
+cfg_log_app: benefit

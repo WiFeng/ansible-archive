@@ -1,0 +1,7 @@
+---
+- name: Install JRE
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - JDK

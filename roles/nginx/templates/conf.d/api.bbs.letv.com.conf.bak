@@ -1,0 +1,21 @@
+server {
+    listen  127.0.0.1:80;
+    include listen.conf;
+    server_name api.bbs.letv.com api.bbs.le.com api-bbs.le.com;
+    root /data/bbs3.2/api/;
+
+    rewrite /rest/(.*)$ /rest/index.php last;
+
+    location / {
+        root /data/bbs3.2/api/;
+        index  index.html index.php;
+    }
+
+    location ~ ^.*\.php$ {
+        root /data/bbs3.2/api/;
+        fastcgi_index index.php;
+        fastcgi_pass web_php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}

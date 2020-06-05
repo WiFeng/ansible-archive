@@ -1,0 +1,29 @@
+---
+
+nginx_vhosts:
+  - limit_req
+  - opcache.io
+  - i.le.com
+  - i.cp21.ott.cibntv.net.8083
+
+filebeat_tags:
+  - service-lefan
+  - web-tier
+filebeat_input_log_topic: lefan_log
+filebeat_input_trace_topic: lefan_tracing_log
+
+cbase:
+  - port: 11212
+    CB_BUCKET: lefam
+    CB_HOSTS: 10.110.147.154,10.110.147.155,10.110.147.156,10.110.147.169,10.110.147.181
+
+gbalancer:
+  - port: 3310
+    pass: "MOu5OrTS"
+    #host: "10.110.203.16 10.110.203.13 10.110.203.14"
+    host1: "10.110.203.16"
+    host2: "10.110.203.13"
+    host3: "10.110.203.14"
+    model: 1
+
+cfg_log_app: usercenterapi

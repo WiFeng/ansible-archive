@@ -1,0 +1,24 @@
+---
+
+filebeat_package: filebeat-5.1.2-x86_64.rpm
+filebeat_conf_path: /etc/filebeat
+
+#filebeat_tags:
+#  - service-lefan
+#  - web-tier
+#filebeat_input_log_paths:
+#  - /letv/logs/i.cp21.ott.cibntv.net_access.log
+#filebeat_input_log_topic: lefan_log
+#filebeat_input_trace_paths:
+#  - /letv/logs/phpzipkin/*
+#filebeat_input_trace_topic: lefan_tracing_log
+
+filebeat_tags:
+  - web-tier
+filebeat_input_log_paths:
+  - /letv/logs/nginx/access.log
+  - /letv/logs/phpmessages
+filebeat_input_trace_paths:
+  - /letv/logs/phpzipkin/*
+filebeat_input_log_topic: generic_log
+filebeat_input_trace_topic: tracing_log

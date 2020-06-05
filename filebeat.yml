@@ -1,0 +1,7 @@
+---
+- name: Install FileBeat 
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - filebeat

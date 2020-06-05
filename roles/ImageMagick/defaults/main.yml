@@ -1,0 +1,4 @@
+---
+
+ImageMagick_prefix: /usr/local/ImageMagick
+ImageMagick_package: ImageMagick-6.9.2-4

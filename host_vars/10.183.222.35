@@ -1,0 +1,4 @@
+---
+
+php_fpm_request_slowlog_timeout: 100s
+php_fpm_request_terminate_timeout: 600s

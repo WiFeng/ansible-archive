@@ -1,0 +1,8 @@
+---
+#- name: install moxi
+#  script: moxiInstall_new.sh {{MOXI_PORT}} {{CB_BUCKET}} {{CB_HOSTS}}
+
+- name: install moxi
+  script: moxiInstall_new.sh {{item.port}} {{item.CB_BUCKET}} {{item.CB_HOSTS}}
+  with_items: "{{cbase}}"
+  when: item is not none

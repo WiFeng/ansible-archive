@@ -1,0 +1,41 @@
+---
+
+nginx_vhosts:
+  - limit_req
+  - opcache.io
+  - odp.my.le.com
+  - open-odp.le.com
+
+filebeat_tags:
+  - service-lefan
+  - web-tier
+filebeat_input_log_topic: odp_log
+filebeat_input_trace_topic: lefan_tracing_log
+
+cbase:
+  - port: 11211
+    CB_BUCKET: odpUser
+    CB_HOSTS: 10.127.220.233,10.127.220.234,10.127.220.235,10.127.220.236,10.127.220.237,10.127.220.239,10.127.220.241,10.127.220.242,10.127.220.243,10.127.220.244
+
+  - port: 11212
+    CB_BUCKET: lefam
+    CB_HOSTS: 10.183.101.167,10.183.101.168,10.183.101.169,10.183.101.170,10.183.101.171,10.183.101.177,10.183.101.178,10.183.101.179
+
+gbalancer:
+  - port: 3306
+    pass: "LESdjetK"
+    #host: "10.183.83.196 10.183.83.197 10.183.83.198"
+    host1: "10.183.83.196"
+    host2: "10.183.83.197"
+    host3: "10.183.83.198"
+    model: 1
+  - port: 3316
+    pass: "ZokbldoC"
+    #host: "10.110.203.171 10.110.203.170 10.110.203.173"
+    host1: "10.110.203.171"
+    host2: "10.110.203.170"
+    host3: "10.110.203.173"
+    model: 1
+
+
+cfg_log_app: odp

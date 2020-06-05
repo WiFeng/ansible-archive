@@ -1,0 +1,70 @@
+---
+
+#- name: install php
+#  yum: name=php56 state=present
+
+- name: copy package
+  copy: src={{php_package}}.tar.gz dest=/root/
+
+- name: run install
+  script: install.sh {{php_prefix}} {{php_package}}
+
+- name: mkdir log path
+  file:
+    path: "{{item}}"
+    owner: nobody
+    group: nobody
+    state: directory
+  with_items:
+    - "{{php_log_path}}"
+    - "{{php_trace_path}}"
+
+- name: create log file
+  file:
+    path: "{{item}}"
+    state: touch
+    owner: nobody
+    group: nobody
+  with_items:
+    - "{{php_error_log}}"
+    - "{{php_message_log}}"
+
+- name: copy php.ini
+  template: src=php.ini dest={{php_prefix}}/etc/
+  notify: reload php-fpm
+
+- name: copy php-fpm.conf
+  template: src=php-fpm.conf dest={{php_prefix}}/etc/
+  notify: reload php-fpm
+
+- name: copy extensions
+  copy: src={{item}}.so dest={{php_prefix}}/lib/php/extensions/no-debug-non-zts-20121212/
+  with_items:
+   #- exif 
+   #- imagick
+   #- ldap
+   - memcache
+   #- memcached
+   - mongo
+   - opcache
+   - redis
+   #- swiftq
+   - qclient 
+   #- xhprof
+   #- yac
+   #- yaf
+   - cqpid
+   - ftp
+   - molten
+   - mysqli
+   - pcntl
+   - shmop
+   - soap
+   - sysvsem
+   - xmlrpc
+   - amqp
+
+- name: copy /etc/init.d/php-fpm
+  template: src=php-fpm dest=/etc/init.d/ mode=0755
+
+

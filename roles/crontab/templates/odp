@@ -1,0 +1,12 @@
+#影视会员
+*/1 * * * * /usr/local/php/bin/php /letv/www/odp.my.le.com/index.php film 07 >> /letv/logs/film_shell.log
+*/1 * * * * /usr/local/php/bin/php /letv/www/odp.my.le.com/index.php film 17 >> /letv/logs/film_shell.log
+*/1 * * * * /usr/local/php/bin/php /letv/www/odp.my.le.com/index.php film 27 >> /letv/logs/film_shell.log
+*/1 * * * * /usr/local/php/bin/php /letv/www/odp.my.le.com/index.php film 37 >> /letv/logs/film_shell.log
+*/1 * * * * /usr/local/php/bin/php /letv/www/odp.my.le.com/index.php film 47 >> /letv/logs/film_shell.log
+
+*/1 * * * * /usr/local/php/bin/php /letv/www/odp.my.le.com/index.php standard >/dev/null 2>&1
+*/1 * * * * /usr/local/php/bin/php /letv/www/odp.my.le.com/index.php standard >/dev/null 2>&1
+
+#排行榜
+*/1 * * * * /usr/local/php/bin/php  /letv/www/odp.my.le.com/index.php tvstandard >/dev/null 2>&1 &

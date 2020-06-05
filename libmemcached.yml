@@ -1,0 +1,7 @@
+---
+- name: Install libmemcached 
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - libmemcached

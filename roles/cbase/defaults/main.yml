@@ -1,0 +1,12 @@
+---
+
+#cbase:
+#  - port:
+#    CB_BUCKET:
+#    CB_HOSTS:
+#
+#  - port:
+#    CB_BUCKET:
+#    CB_HOSTS:
+
+cbase:

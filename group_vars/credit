@@ -1,0 +1,5 @@
+---
+cfg_log_app: credit
+filebeat_tags:
+  - service-jifen
+filebeat_input_log_topic: jifen_log

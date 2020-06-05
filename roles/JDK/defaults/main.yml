@@ -1,0 +1,5 @@
+---
+
+jdk_prefix: /usr/local/jdk
+jdk_package: jdk1.8.0_162
+

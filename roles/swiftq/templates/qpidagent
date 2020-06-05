@@ -1,0 +1,74 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides: qpidagent
+# Required-Start: $local_fs $remote_fs $network
+# Required-Stop: $local_fs $remote_fs $network
+# Default-Start: 3 4 5
+# Default-Stop: 0 1 2 6
+# Short-Description: start or stop qpidagent
+# Description: Qpidd is an AMQP broker with a low performance at short connection, QpidAgent greatly improve the performance
+### END INIT INFO
+
+# chkconfig: - 85 15
+# description: Qpidd is an AMQP broker with a low performance at short connection, QpidAgent greatly improve the performance
+
+name={{agent.name}}
+
+prog=qpidagent
+#pidfile=/var/run/qpidagent/$prog.pid
+RETVAL=0
+
+pidfile=/var/run/qpidagent/${prog}_${name}.pid
+config=/etc/${prog}_${name}.conf
+
+. /etc/rc.d/init.d/functions
+
+if [[ !(-x /usr/sbin/$prog) ]] ; then
+    echo "/usr/sbin/$prog not found or not executable" 
+    exit 5
+fi
+
+start(){
+
+    echo -n $"Starting $prog daemon: "
+
+    # enable core dump file in daemon function
+    export DAEMON_COREFILE_LIMIT=unlimited
+    #daemon --pidfile $pidfile --check $prog /usr/sbin/$prog --daemon --pidfile $pidfile
+    daemon --pidfile $pidfile --check $prog /usr/sbin/$prog --daemon --pidfile $pidfile --config $config
+    RETVAL=$?
+    echo
+}
+ 
+stop(){
+
+    echo -n $"Stopping $prog daemon: "
+    killproc -p $pidfile $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL = 0 ] && rm -f ${lockfile} ${pidfile}
+}
+ 
+restart(){
+    stop
+    start
+}
+
+qa_status(){
+    status -p $pidfile $prog
+}
+ 
+case "$1" in
+    start|stop|restart)
+        $1
+        ;;
+    status)
+        qa_status
+        ;;
+    *)
+        echo 1>&2 "Usage: $0 {start|stop|status|restart}"
+        exit 2
+esac
+ 
+exit $RETVAL

@@ -1,0 +1,7 @@
+---
+- name: Install gbalancer
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - gbalancer

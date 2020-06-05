@@ -1,0 +1,13 @@
+---
+
+- name: start qpidagent 
+  service: name=qpidagent_{{item.name}} state=started enabled=yes
+  with_items: "{{qpidagents}}"
+
+- name: stop qpidagent
+  service: name=qpidagent_{{item.name}} state=stopped enabled=yes
+  with_items: "{{qpidagents}}"
+  
+- name: restart qpidagent
+  service: name=qpidagent_{{item.name}} state=restarted enabled=yes
+  with_items: "{{qpidagents}}"

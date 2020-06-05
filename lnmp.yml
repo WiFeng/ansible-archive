@@ -1,0 +1,9 @@
+---
+- name: Install Nginx, and PHP
+  hosts: "{{hosts}}" 
+  become: yes
+
+  roles: 
+    - common
+    - nginx
+    - "{{php_version}}"

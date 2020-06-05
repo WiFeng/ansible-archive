@@ -1,0 +1,11 @@
+---
+
+#- name: install ImageMagick
+#  yum: name=ImageMagick state=present
+
+- name: copy package
+  copy: src={{ImageMagick_package}}.tar.gz dest=/root/
+
+- name: run install 
+  script: install.sh {{ImageMagick_prefix}} {{ImageMagick_package}}
+

@@ -1,0 +1,13 @@
+---
+
+nginx_vhosts:
+  - limit_req
+  - opcache.io
+  - my.le.com
+
+filebeat_tags:
+  - service-ucenter
+  - web-tier
+filebeat_input_log_topic: ucenter_log
+
+cfg_log_app: usercenter

@@ -1,0 +1,91 @@
+---
+
+qpidagent_log_path: /letv/logs/qpidagent
+qpidagents:
+
+  -  name: "base_misc_test"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 46678
+     qpiduser:
+     qpidpasswd:
+     qpidbroker: "10.11.144.92:5672"
+     qpidaddress: "leme.base_misc_test.exchange"
+
+  -  name: "base_status_test"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 46679
+     qpiduser:  
+     qpidpasswd: 
+     qpidbroker: "10.11.144.92:5672"
+     qpidaddress: "leme.base_status_test.exchange"     
+
+  -  name: "base_comment_test"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 46680
+     qpiduser: 
+     qpidpasswd: 
+     qpidbroker: "10.11.144.92:5672"
+     qpidaddress: "leme.base_comment_test.exchange"
+
+  -  name: "base_userfollow_test"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 46681
+     qpiduser: 
+     qpidpasswd: 
+     qpidbroker: "10.11.144.92:5672"
+     qpidaddress: "leme.base_userfollow_test.exchange"
+
+  -  name: "base_topicthread_test"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 46682
+     qpiduser: 
+     qpidpasswd: 
+     qpidbroker: "10.11.144.92:5672"
+     qpidaddress: "leme.base_topicthread_test.exchange"
+
+  -  name: "base_forumthread_test"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 46683
+     qpiduser: 
+     qpidpasswd: 
+     qpidbroker: "10.11.144.92:5672"
+     qpidaddress: "leme.base_forumthread_test.exchange"
+
+  -  name: "base_sentence_test"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 46684
+     qpiduser: 
+     qpidpasswd: 
+     qpidbroker: "10.11.144.92:5672"
+     qpidaddress: "leme.base_sentence_test.exchange"
+
+
+php_prefix: /usr/local/php56
+php_fpm_env_APP_ENV: testing
+php_fpm_env_APP_HTTPS: compatible
+php_fpm_request_slowlog_timeout: 10s
+php_fpm_request_terminate_timeout: 60s 
+php_yaf_environ: testing
+
+nginx_vhosts:
+  - limit_req
+  - bbs.letv.com     
+  - bug.letv.com
+  - www.letvstore.com
+  - static.bbs.letv.com
+  - attach.bbs.letv.com
+  - api.bbs.letv.com
+  - shop2.bbs.letv.com
+ 
+  - ms.bbs.le.com
+  - h5.bbs.le.com
+  - hd.bbs.le.com
+
+

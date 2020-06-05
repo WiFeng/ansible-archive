@@ -1,0 +1,6 @@
+---
+
+kibana_package: kibana-6.1.2-x86_64.rpm
+logstash_package: logstash-6.1.2.rpm
+elasticsearch_package: elasticsearch-6.1.2.rpm
+

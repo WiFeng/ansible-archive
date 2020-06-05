@@ -1,0 +1,12 @@
+---
+cfg_log_app: lejifen
+filebeat_tags:
+  - service-jifen
+filebeat_input_log_topic: jifen_log
+
+nginx_vhosts:
+  - lua
+  - limit_req
+  - opcache.io
+  - api.lejifen.my.letv
+  - ues.i.le.com

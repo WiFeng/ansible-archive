@@ -1,0 +1,7 @@
+---
+- name: copy crontab file
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - crontab

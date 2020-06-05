@@ -1,0 +1,13 @@
+---
+
+- name: copy package
+  copy: src={{filebeat_package}} dest=/root/
+
+- name: install filebeat
+  #yum: name="https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.1.2-x86_64.rpm" state=present
+  yum: name=/root/{{filebeat_package}} state=present
+  notify: start filebeat
+
+- name: copy filebeat.yml
+  template: src=filebeat.yml dest={{filebeat_conf_path}}/filebeat.yml
+  notify: restart filebeat

@@ -1,0 +1,8 @@
+# Shortcuts
+NS %{NOTSPACE}
+
+# Quote String Content "aaa" => aaa, not match " "
+NQ [^\"]*
+
+_URIPARAM [^\"\s]*
+URIPARAM %{_URIPARAM}

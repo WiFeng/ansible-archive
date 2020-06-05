@@ -1,0 +1,4 @@
+---
+
+libmemcached_prefix: /usr/local/libmemcached
+libmemcached_package: libmemcached-1.0.18

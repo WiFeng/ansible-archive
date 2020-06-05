@@ -1,0 +1,8 @@
+---
+
+nginx_vhosts:
+  - opcache.io
+#  - attach.bbs.letv.com
+  - attach1.bbs.letv.com 
+
+

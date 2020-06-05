@@ -1,0 +1,31 @@
+---
+
+nginx_vhosts:
+  - limit_req
+  - opcache.io
+  - iapi.growth.i.le.com
+  - iapi.growth.i.le.com-v2
+
+filebeat_tags:
+  - service-lefan
+  - web-tier
+filebeat_input_log_topic: growth_log
+filebeat_input_trace_topic: lefan_tracing_log
+
+gbalancer:
+  - port: 3306
+    pass: "rJveDDNw"
+    #host: "10.183.83.196 10.183.83.197 10.183.83.198"
+    host1: "10.124.50.62"
+    host2: "10.124.50.64"
+    host3: "10.124.50.60"
+    model: 1
+  - port: 3308
+    pass: "kW7e7T7/"
+    #host: "10.127.52.130 10.127.52.131 10.127.52.132"
+    host1: "10.124.50.67"
+    host2: "10.124.50.200"
+    host3: "10.124.50.61"
+    model: 1
+
+cfg_log_app: usergrowth

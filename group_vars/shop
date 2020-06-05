@@ -1,0 +1,13 @@
+---
+
+nginx_vhosts:
+  - limit_req
+  - bbs.letv.com     
+  - shop2.bbs.letv.com
+  - i.letvcdn.com
+ 
+  - h5.bbs.le.com
+  - hd.bbs.le.com
+  - sign.bbs.le.com
+
+

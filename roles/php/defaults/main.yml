@@ -1,0 +1,25 @@
+---
+
+php_prefix: /usr/local/php
+php_package: php-5.6.9
+
+php_log_path: /letv/logs/php
+php_error_log: /letv/logs/php/php_errors.log
+php_opcache_log: /letv/logs/php/opcache.log
+
+php_fpm_error_log: /letv/logs/php/php-fpm.log
+php_fpm_slowlog: /letv/logs/php/$pool.log.slow
+
+php_fpm_env_APP_ENV: production
+php_fpm_env_APP_HTTPS: compatible
+
+php_fpm_request_slowlog_timeout: 1s
+php_fpm_request_terminate_timeout: 2s
+
+php_yaf_environ: production
+php_yaf_use_namespace: 1
+
+# zipkin log dir
+php_trace_path: /letv/logs/phpzipkin/
+# app log path
+php_message_log: /letv/logs/phpmessages

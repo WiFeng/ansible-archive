@@ -1,0 +1,36 @@
+---
+
+- name: Create user (www)
+  script: add_www.sh
+
+- name: Mkdir /letv/www/
+  file:
+    path: /letv/www/
+    owner: www
+    group: www
+    state: directory
+    mode: 0755
+
+- name: Mkdir /letv/releases/
+  file:
+    path: /letv/releases/
+    owner: www
+    group: www
+    state: directory
+    mode: 0755
+
+# php opcache directory
+- name: Mkdir /letv/www/opcache
+  file:
+    path: /letv/www/opcache
+    owner: www
+    group: www
+    state: directory
+    mode: 0755
+
+# php opcache file
+- name: Copy opcache.php
+  copy: src=opcache.php dest=/letv/www/opcache/
+
+
+

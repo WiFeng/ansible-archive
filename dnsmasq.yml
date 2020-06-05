@@ -1,0 +1,7 @@
+---
+- name: Config Dnsmasq
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - dnsmasq

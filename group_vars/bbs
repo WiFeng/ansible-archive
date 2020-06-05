@@ -1,0 +1,99 @@
+---
+
+qpidagents:
+
+  -  name: "base_misc"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 45678
+     qpiduser: "leme"
+     qpidpasswd: "lemeleme"
+     qpidbroker: "10.110.92.68:8118"
+     qpidaddress: "leme.base_misc.exchange"
+
+  -  name: "base_status"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 45679
+     qpiduser: "leme" 
+     qpidpasswd: "lemeleme"
+     qpidbroker: "10.110.92.68:8118"
+     qpidaddress: "leme.base_status.exchange"     
+
+  -  name: "base_comment"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 45680
+     qpiduser: "leme"
+     qpidpasswd: "lemeleme"
+     qpidbroker: "10.110.92.68:8118"
+     qpidaddress: "leme.base_comment.exchange"
+
+  -  name: "base_userfollow"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 45681
+     qpiduser: "leme"
+     qpidpasswd: "lemeleme"
+     qpidbroker: "10.110.92.68:8118"
+     qpidaddress: "leme.base_userfollow.exchange"
+
+  -  name: "base_topicthread"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 45682
+     qpiduser: "leme"
+     qpidpasswd: "lemeleme"
+     qpidbroker: "10.110.92.68:8118"
+     qpidaddress: "leme.base_topicthread.exchange"
+
+  -  name: "base_forumthread"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 45683
+     qpiduser: "leme"
+     qpidpasswd: "lemeleme"
+     qpidbroker: "10.110.92.68:8118"
+     qpidaddress: "leme.base_forumthread.exchange"
+
+  -  name: "base_sentence"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 45684
+     qpiduser: "leme"
+     qpidpasswd: "lemeleme"
+     qpidbroker: "10.110.92.68:8118"
+     qpidaddress: "leme.base_sentence.exchange"
+
+php_fpm_env_APP_ENV: production
+php_fpm_env_APP_HTTPS: compatible
+
+nginx_vhosts:
+  - limit_req
+  - opcache.io
+  - bbs.letv.com
+  - bug.letv.com
+  - www.letvstore.com
+  - static.bbs.letv.com
+  - attach.bbs.letv.com
+  - api.bbs.letv.com
+  - shop2.bbs.letv.com
+ 
+  - ms.bbs.le.com
+  - h5.bbs.le.com
+  - hd.bbs.le.com
+  - sign.bbs.le.com
+  
+  - go.my.le.com
+
+filebeat_tags:
+  - service-bbs
+  - web-tier
+filebeat_input_log_paths:
+  - /letv/logs/nginx/access.log
+  - /letv/logs/sphinx/query.log
+  - /letv/www/bbs/data/locallog/*
+filebeat_input_log_topic: bbs_log
+filebeat_input_trace_topic: bbs_tracing_log
+
+

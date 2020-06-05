@@ -1,0 +1,11 @@
+---
+
+php_fpm_env_APP_ENV: production
+php_fpm_env_APP_HTTPS: compatible
+
+nginx_vhosts:
+  - opcache.io
+  - admin.chain.letv.cn
+
+
+

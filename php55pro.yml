@@ -1,0 +1,7 @@
+---
+- name: Install PHP5.5.5.25 
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - php55pro

@@ -1,0 +1,11 @@
+{
+    "User": "monitor",
+    "Pass": "{{item.pass}}",
+    "Addr": "127.0.0.1",
+    "Port": "{{item.port}}",
+    "Backend": [
+        "{{item.host1}}:3306",
+        "{{item.host2}}:3306",
+        "{{item.host3}}:3306"
+    ] 
+}

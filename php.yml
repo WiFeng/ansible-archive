@@ -1,0 +1,7 @@
+---
+- name: Install PHP 
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - php

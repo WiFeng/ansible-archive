@@ -1,0 +1,17 @@
+---
+
+#- name: install sphinx
+#  yum: name=sphinx state=present
+
+- name: copy package
+  copy: src={{sphinx_package}}.tar.gz dest=/root/
+
+- name: run install 
+  script: install.sh {{sphinx_prefix}} {{sphinx_package}}
+
+- name: mkdir (log_path)
+  raw: mkdir -p {{sphinx_log_path}}
+
+- name: copy sphinx.conf
+  template: src=sphinx.conf dest={{sphinx_conf_path}}
+

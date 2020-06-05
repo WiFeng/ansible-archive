@@ -1,0 +1,42 @@
+---
+
+- name: install nginx
+  yum: name=nginx state=present
+  notify: start nginx
+
+- name: mkdir conf_path
+  raw: mkdir -p /etc/nginx/conf.d/sslkey /etc/nginx/conf.d/rewrite/
+
+- name: mkdir log_path
+  raw: mkdir -p {{nginx_log_path}}
+
+- name: copy nginx/nginx.conf
+  template: src=nginx.conf dest=/etc/nginx/
+  notify: reload nginx
+
+- name: copy nginx/conf.d/*.conf <part1>
+  template: src=conf.d/{{item}}.conf dest=/etc/nginx/conf.d/
+  with_items:
+    - ssl
+    - acl
+    - admin_acl
+  notify: reload nginx
+
+- name: copy nginx/conf.d/*.conf <part2>
+  template: src=conf.d/{{item}}.conf dest=/etc/nginx/conf.d/
+  with_items: "{{nginx_vhosts}}"
+  when: item is not none
+  notify: reload nginx
+
+- name: copy nginx/conf.d/sslkey/
+  template: src=conf.d/sslkey/{{item}} dest=/etc/nginx/conf.d/sslkey/
+  with_items:
+    - server.crt
+    - server.key
+  notify: reload nginx
+
+- name: copy nginx/conf.d/rewrite/*.conf
+  template: src=conf.d/rewrite/{{item}}.conf dest=/etc/nginx/conf.d/rewrite/
+  with_items: "{{nginx_rewrite}}"
+  when: item is not none
+  notify: reload nginx

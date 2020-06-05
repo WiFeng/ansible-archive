@@ -1,0 +1,5 @@
+[qpidagent]
+name=qpidagent
+baseurl=ftp://10.106.54.179
+gpgcheck=0
+enabled=1

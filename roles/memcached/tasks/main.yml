@@ -1,0 +1,9 @@
+---
+
+- name: install memcached
+  yum: name=memcached state=present
+  notify: start memcached
+
+- name: copy config file
+  template: src=memcached dest=/etc/sysconfig/
+  notify: reload memcached

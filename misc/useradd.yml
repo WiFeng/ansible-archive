@@ -1,0 +1,13 @@
+---
+
+- hosts: "{{hosts}}" 
+  become: yes 
+  vars:
+    # python -c 'import crypt; print crypt.crypt("This is my Password", "$1$SomeSalt$")'
+    # openssl passwd -1 'This is my Password'
+    username: testansible
+    password: $1$mMa9WJuS$M0oLSXNL4ZbjZtKQ5ZjYV0 
+  tasks:
+    - user: name={{username}} password={{password}}
+
+

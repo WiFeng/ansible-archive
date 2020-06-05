@@ -1,0 +1,36 @@
+---
+
+#- name: add qpidagent repository
+#  copy: src=qpidagent.repo dest=/etc/yum.repos.d/
+#
+#- name: install qpidagent
+#  yum:
+#    name: qpidagent
+#    state: present 
+
+- name: copy package
+  copy: src={{qpidagent_package}} dest=/root/
+
+- name: install qpidagent
+  yum: name=/root/{{qpidagent_package}} state=present
+
+- name: mkdir (conf_path/log_path) 
+  raw: mkdir -p {{qpidagent_log_path}} 
+
+- name: copy /etc/qpidagent.conf
+  template:
+    src: qpidagent.conf
+    dest: /etc/qpidagent_{{item.name}}.conf
+  vars:
+    agent: "{{item}}"
+  with_items: "{{qpidagents}}"
+
+- name: copy /etc/init.d/qpidagent
+  template:
+    src: qpidagent
+    dest: /etc/init.d/qpidagent_{{item.name}}
+    mode: 0755
+  vars:
+    agent: "{{item}}"
+  with_items: "{{qpidagents}}"
+  #notify: restart qpidagent_{{item.name}}

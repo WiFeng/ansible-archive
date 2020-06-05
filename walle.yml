@@ -1,0 +1,7 @@
+---
+- name: Walle Config
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - walle

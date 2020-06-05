@@ -1,0 +1,17 @@
+---
+
+php_fpm_env_APP_ENV: production
+php_fpm_env_APP_HTTPS: compatible
+
+nginx_vhosts:
+  - limit_req
+  - opcache.io
+  - admin.touch.my.letv.com
+  - urm.touch.letv.cn
+  - cms.bbs.letv.cn
+  - ui.letv.com
+  - admin.chain.letv.cn
+
+cfg_log_app: admin
+
+crontab_file: cutlog

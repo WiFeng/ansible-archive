@@ -1,0 +1,8 @@
+---
+
+sphinx_prefix: /usr/local/sphinx
+sphinx_package: sphinx-2.2.11-release
+
+sphinx_log_path: /letv/logs/sphinx
+sphinx_conf_path: /usr/local/sphinx/etc
+

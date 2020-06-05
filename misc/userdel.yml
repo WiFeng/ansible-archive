@@ -1,0 +1,12 @@
+---
+
+- hosts: "{{hosts}}" 
+  become: yes 
+  vars:
+    username: testansible
+
+  tasks:
+    - user: name={{username}} state=absent remove=yes
+    #- user: name={{username}} state=absent
+
+

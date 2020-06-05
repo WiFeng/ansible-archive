@@ -1,0 +1,12 @@
+---
+- name: start dnsmasq
+  service: name=dnsmasq state=started enabled=yes
+
+- name: stop dnsmasq
+  service: name=dnsmasq state=stopped enabled=yes
+
+- name: restart dnsmasq
+  service: name=dnsmasq state=restarted enabled=yes
+
+- name: reload dnsmasq
+  service: name=dnsmasq state=reloaded enabled=yes

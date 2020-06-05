@@ -1,0 +1,17 @@
+---
+
+- name: Copy package
+  copy: src={{jdk_package}}.tar.gz dest=/root/
+
+- name: Run install
+  script: install.sh {{jdk_prefix}} {{jdk_package}}
+
+- name: Copy profile
+  template: src=jdk.sh dest=/etc/profile.d/
+
+- name: Load profile
+  raw: source /etc/profile
+
+
+
+

@@ -1,0 +1,24 @@
+---
+
+qpidagent_package: qpidagent-0.1-1.el6.x86_64.rpm
+qpidagent_log_path: /letv/logs/qpidagent
+qpidagents:
+
+  -  name: "test1"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 46678
+     qpiduser:
+     qpidpasswd:
+     qpidbroker: "10.11.144.92:5672"
+     qpidaddress: "leme.test1.exchange"
+
+  -  name: "test2"
+     worker: "1"
+     loglevel: "info"
+     listen_inetport: 46679
+     qpiduser:
+     qpidpasswd:
+     qpidbroker: "10.11.144.92:5672"
+     qpidaddress: "leme.test2.exchange"
+

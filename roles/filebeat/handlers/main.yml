@@ -1,0 +1,10 @@
+---
+- name: start filebeat
+  service: name=filebeat state=started enabled=yes
+
+- name: stop filebeat
+  service: name=filebeat state=stopped enabled=yes
+  
+- name: restart filebeat
+  service: name=filebeat state=restarted enabled=yes
+  

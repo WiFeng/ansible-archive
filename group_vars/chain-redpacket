@@ -1,0 +1,13 @@
+---
+
+nginx_vhosts:
+  - limit_req
+  - opcache.io
+  - api-task.onechain.life
+
+cbase:
+  - port: 11211
+    CB_BUCKET: chainredpacket
+    CB_HOSTS: 10.124.133.64,10.124.133.66,10.124.133.68,10.124.133.69,10.124.133.71,10.124.133.72,10.124.133.73,10.124.133.78
+
+cfg_log_app: chain-redpacket

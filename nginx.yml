@@ -1,0 +1,7 @@
+---
+- name: Install Nginx
+  hosts: "{{hosts}}"
+  become: yes
+
+  roles:
+    - nginx

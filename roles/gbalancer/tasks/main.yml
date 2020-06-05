@@ -1,0 +1,17 @@
+---
+#- name: install gbalancer
+#  script: set_gbalancer_v5.sh {{THEPORT}} {{MONITOR_PASS}} {{DB_IP1}} {{DB_IP2}} {{DB_IP3}} {{CHOOSE_MODEL}}
+
+- name: install gbalancer
+  script: set_gbalancer_v5.sh {{item.port}} {{item.pass}} {{item.host1}} {{item.host2}} {{item.host3}} {{item.model}}
+  with_items: "{{gbalancer}}"
+  when: item is not none
+
+- name: copy /etc/gbalancer/XXXXconfiguration.json
+  template:
+    src: configuration.json
+    dest: /etc/gbalancer/{{item.port}}configuration.json
+  vars:
+    config: "{{item}}"
+  with_items: "{{gbalancer}}"
+  when: item is not none
